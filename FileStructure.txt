@@ -1,6 +1,8 @@
-- app/
+- MappingCommerce/
 --- models/
 ------- commerce.js
+--- routes/
+------- api.js
 - node_modules/
 - package.json
 - server.js

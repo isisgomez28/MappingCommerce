@@ -2,9 +2,13 @@
 {
     "name": "MappingCommerce-api",
     "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "authors": "",
     "dependencies": {
         "express": "~4.0.0",
-        "sequelize": "~3.0.0",
         "body-parser": "~1.0.1"
     }
 }
