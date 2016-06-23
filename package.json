@@ -1,0 +1,10 @@
+// package.json
+{
+    "name": "MappingCommerce-api",
+    "main": "server.js",
+    "dependencies": {
+        "express": "~4.0.0",
+        "sequelize": "~3.0.0",
+        "body-parser": "~1.0.1"
+    }
+}
