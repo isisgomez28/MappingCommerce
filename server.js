@@ -1,4 +1,4 @@
-"use strict"
+'use strict';
 
 // Paquetes que necesitaremos
 var express         = require('express');
