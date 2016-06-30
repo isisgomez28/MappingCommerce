@@ -1,3 +1,5 @@
+"use strict"
+
 // Paquetes que necesitaremos
 var express         = require('express');
 var app             = express();
@@ -16,7 +18,7 @@ var router = express.Router();
 
 // Prueba de Funcionamiento de Router
 router.get('/', function (req, res) {
-    res.json({message: 'Bienvenido a Nuestra API'});
+    res.json({message: 'Bienvenido a la Web API'});
 });
 
 // Registro de Nuestro Router
