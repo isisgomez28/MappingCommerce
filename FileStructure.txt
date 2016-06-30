@@ -4,5 +4,6 @@
 --- routes/
 ------- api.js
 - node_modules/
+- config.json
 - package.json
 - server.js

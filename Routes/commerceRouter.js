@@ -12,8 +12,19 @@ router.get('/commerces', function (req, res) {
     // Mostrar en Consola resumen de la ejecucion de la peticion de todos los Comercios.
     console.log('Peticion de todos los comercios creados');
     
-    commerce.findAll().then(function (commerces) {
-        res.json(commerces);
+    commerce.findAll().then(function (err, commerces) {
+        if (err) {
+            return res(err);
+        }
+        
+        try {
+            parsedJson = JSON.parse(commerces);
+        }
+        catch (exception) {
+            return res(exception);
+        }
+        
+        return res(null, parsedJson);        
     });
 });
 

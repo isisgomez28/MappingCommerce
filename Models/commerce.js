@@ -10,7 +10,7 @@ var config          = require(path.join(__dirname, '..', 'config', 'config.json'
 var dbConnection    = new sequelize(config.database, config.username, config.password, config);
 
 // Definicion de Modelo
-var commerce    = dbConnection.define('commerce', {
+var commerce = dbConnection.define ('commerce', {
     name        : {},
     code        : {},
     description : {},
