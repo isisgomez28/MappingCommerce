@@ -15,6 +15,7 @@ var port = process.env.PORT || 2727;
 
 // Configuración del Router de la Aplicación
 var router = express.Router();
+var commerceRoutes = require('./Routes/commerceRouter');
 
 // Prueba de Funcionamiento de Router
 router.get('/', function (req, res) {
@@ -23,7 +24,7 @@ router.get('/', function (req, res) {
 
 // Registro de Nuestro Router
 // Todos los routes seran prefijados con MappingCommerceAPI
-app.use('/MappingCommerceAPI', router);
+app.use('/MappingCommerceAPI/commerce', commerceRoutes);
 
 // Inicio de Ejecución de nuestro Servidor
 app.listen(port);
