@@ -1,9 +1,11 @@
 'use strict';
 
 // Paquetes que necesitaremos
-var express         = require('express');
-var app             = express();
-var bodyParser      = require('body-parser');
+var debug          = require('debug');
+var express        = require('express');
+var app            = express();
+var bodyParser     = require('body-parser');
+var models         = require('./Models/context');
 
 // Configuración de Body Parser
 // Permitirá obtener data from POST
@@ -18,7 +20,7 @@ var router = express.Router();
 var commerceRoutes = require('./Routes/commerceRouter');
 
 // Prueba de Funcionamiento de Router
-router.get('/', function (req, res) {
+router.get('/MappingCommerceAPI', function (req, res) {
     res.json({message: 'Bienvenido a la Web API'});
 });
 
@@ -27,5 +29,6 @@ router.get('/', function (req, res) {
 app.use('/MappingCommerceAPI/commerce', commerceRoutes);
 
 // Inicio de Ejecución de nuestro Servidor
+// Configuración de los Modelos
 app.listen(port);
 console.log('Magic happens on port ' + port);

@@ -1,9 +1,15 @@
 {
     "development" : {
-        "dialect"   : "mysql",
+        "database"  : "mappingcommercedevdb",
         "username"  : "root",
-        "password"  : null,
-        "dagtabase" : "MappingCommerceDevDB",
-        "host"      : "127.0.0.1"
+        "password"  : "1234", 
+        "host"      : "localhost",
+        "port"      : "3328",
+        "dialect"   : "mysql",
+        "pool"      : {
+            "max"   : 5,
+            "min"   : 0,
+            "idle"  : 10000
+        }
     }
 }
