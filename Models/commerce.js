@@ -31,7 +31,8 @@ module.exports  = function(sequelize, DataTypes) {
         freezeTableName: true // Model tableName will be the same as the model name
     });
     
-    //Commerce.sync({force: true});
+    // La siguiente linea sincroniza la base de datos con el modelo.
+    Commerce.sync({force: true});
     
     return Commerce;
 };

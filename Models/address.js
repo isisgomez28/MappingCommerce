@@ -3,7 +3,7 @@
 // Definicion del Modelo para las Direcciones de los Comercios
 module.exports  = function (sequelize, DataTypes) {    
     var Address = sequelize.define ("Address", {
-        name            : {
+        title           : {
             type        : DataTypes.STRING(60),
             field       : 'Name',
             allowNull   : false,
@@ -65,7 +65,8 @@ module.exports  = function (sequelize, DataTypes) {
         freezeTableName: true
     });
 
-    //Address.sync({force: true});
+    // La siguiente linea sincroniza la base de datos con el modelo.
+    Address.sync({force: true});
     
     return Address;
 };
