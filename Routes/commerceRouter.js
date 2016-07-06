@@ -1,11 +1,10 @@
-'use strict';
-
+var models      = require('../models/context');
 var express     = require('express');
 var router      = express.Router();
-var commerce    = require('../Models/commerce');
-var address     = require('../Models/address');
 
-console.log(commerce);
+// Log para los models
+console.log(models.Address);
+console.log(models.Commerce);
 
 /**
     Lista de Todos los Comercios.
@@ -15,7 +14,7 @@ router.get('/all', function (req, res) {
     // Mostrar en Consola resumen de la ejecucion de la peticion de todos los Comercios.
     console.log('Peticion de todos los comercios creados');
     
-    commerce.findAll().then(function (err, commerces) {
+    models.Commerce.findAll().then(function (err, commerces) {
         if (err) {
             return res(err);
         }
@@ -38,7 +37,9 @@ router.get('/all', function (req, res) {
 router.post('/create', function(req, res) {
     console.log("Creacion de un nuevo comercio."); 
     
-    commerce.create({
+    console.log(req.body);
+    
+    models.Commerce.create({
         code        : req.body.code,
         name        : req.body.name,
         description : req.body.description,
@@ -66,7 +67,7 @@ router.post('/create', function(req, res) {
 router.get('/:id', function(req, res) {
     console.log("Peticion de un comercio " + req.params.id);
     
-    commerce.findById(req.params.id).then(function(err, business) {
+    models.Commerce.findById(req.params.id).then(function(err, business) {
         if(err) {
             return res(err);
         }
@@ -89,7 +90,7 @@ router.get('/:id', function(req, res) {
 router.put('/edit/:id', function(req, res) {
     console.log("Edicion de comercio #" + req.params.id);
     
-    commerce.findById(req.params.id).then(function(business) {
+    models.Commerce.findById(req.params.id).then(function(business) {
         business.code = req.body.code;
         business.name = req.body.name;
         business.description = req.body.description;
@@ -119,7 +120,7 @@ router.put('/edit/:id', function(req, res) {
 router.delete('/remove/:id', function(req, res) {
     console.log("Eliminacion de comercio" + req.params.id);
     
-    commerce.findById(req.params.id).then(function(business) {
+    models.Commerce.findById(req.params.id).then(function(business) {
         business.destroy().then(function() {
             res.json({message : "Comercio eliminado"});
         });
@@ -127,7 +128,7 @@ router.delete('/remove/:id', function(req, res) {
 });
 
 router.post('/:commerce_id/address/create', function() {
-    address.create({
+    models.Address.create({
         title: req.body.title,
         stree1: req.body.street1,
         street2: req.body.street2,
@@ -141,7 +142,7 @@ router.post('/:commerce_id/address/create', function() {
 });
 
 router.get('/:commerce_id/address/remove/:address_id', function(req, res) {
-    address.destroy({
+    models.Address.destroy({
         where: {
             id: req.params.address_id
         }

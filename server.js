@@ -5,7 +5,7 @@ var debug          = require('debug');
 var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
-var models         = require('./Models/context');
+var models         = require('./models/context');
 
 // Configuración de Body Parser
 // Permitirá obtener data from POST
@@ -14,6 +14,11 @@ app.use(bodyParser.json());
 
 // Configuración del Puerto de la Aplicación
 var port = process.env.PORT || 2727;
+
+// Configuracion de los Modelos con sequelize
+models.sequelize.sync().then(function () {
+  debug('Express server listening on port ' + port);
+});
 
 // Configuración del Router de la Aplicación
 var router = express.Router();
