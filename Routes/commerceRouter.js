@@ -38,6 +38,7 @@ router.post('/create', function(req, res) {
     console.log("Creacion de un nuevo comercio."); 
     
     console.log(req.body);
+    console.log(res.body);
     
     models.Commerce.create({
         code        : req.body.code,

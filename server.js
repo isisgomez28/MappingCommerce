@@ -7,11 +7,8 @@ var app            = express();
 var bodyParser     = require('body-parser');
 var models         = require('./models/context');
 
-// Configuración de Body Parser
-// Permitirá obtener data from POST
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
+// Configuración del Router de la Aplicación
+var commerceRoutes = require('./Routes/commerceRouter');
 // Configuración del Puerto de la Aplicación
 var port = process.env.PORT || 2727;
 
@@ -20,18 +17,13 @@ models.sequelize.sync().then(function () {
   debug('Express server listening on port ' + port);
 });
 
-// Configuración del Router de la Aplicación
-var router = express.Router();
-var commerceRoutes = require('./Routes/commerceRouter');
-
-// Prueba de Funcionamiento de Router
-router.get('/MappingCommerceAPI', function (req, res) {
-    res.json({message: 'Bienvenido a la Web API'});
-});
+// Configuración de Body Parser
+// Permitirá obtener data from POST
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 // Registro de Nuestro Router
-// Todos los routes seran prefijados con MappingCommerceAPI
-app.use('/MappingCommerceAPI/commerce', commerceRoutes);
+app.use('/commerce', commerceRoutes);
 
 // Inicio de Ejecución de nuestro Servidor
 // Configuración de los Modelos

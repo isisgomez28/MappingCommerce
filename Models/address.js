@@ -66,7 +66,7 @@ module.exports  = function (sequelize, DataTypes) {
     });
 
     // La siguiente linea sincroniza la base de datos con el modelo.
-    // Address.sync({force: true});
+    //Address.sync({force: true});
     
     return Address;
 };
