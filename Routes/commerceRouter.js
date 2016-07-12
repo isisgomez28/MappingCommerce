@@ -5,15 +5,20 @@ var router      = express.Router();
 // Log para los models
 console.log(models.Commerce);
 
+router.use(function(req, res, next) {
+    console.log('Something is happening.');
+    next(); // make sure we go to the next routes and don't stop here
+});
+
 /**
     Lista de Todos los Comercios creados
     @author Isis Gomez
 */
-router.get('/comerces', function (req, res) {
+router.get('/commerces', function (req, res) {
     // Mostrar en Consola resumen de la ejecucion de la peticion de todos los Comercios.
     console.log('Peticion de todos los comercios creados');
     
-    models.Commerce.findAll().then(function (err, commerces) {
+    models.Commerce.findAll().then(function (commerces) {
         res.json(commerces);       
     });
 });
