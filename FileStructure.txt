@@ -2,7 +2,7 @@
 --- models/
 ------- commerce.js
 --- routes/
-------- api.js
+------- commerceRouter.js
 - node_modules/
 - config.json
 - package.json

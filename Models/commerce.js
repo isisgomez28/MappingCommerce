@@ -17,22 +17,26 @@ module.exports  = function(sequelize, DataTypes) {
             type        : DataTypes.TEXT('tiny'),
             field       : 'Description'
         },
-        isPrincipal : {
-            type        : DataTypes.BOOLEAN,
-            field       :'Principal'
-        }
-    }, {
-        classMethods: {
-            associate : function (models) {
-                Commerce.hasOne(models.Address, { as : 'place'});
-            }
+        latitude        : {
+            type        : DataTypes.INTEGER,
+            field       : 'Latitude',
+            allowNull   : false,
+            defaultValue: null,
+            validate    : { min: -90, max: 90 }
+        },
+        longitude       : {
+            type        : DataTypes.INTEGER,
+            field       : 'Longitude',
+            allowNull   : false,
+            defaultValue: null,
+            validate    : { min: -180, max: 180 }
         }
     }, {
         freezeTableName: true // Model tableName will be the same as the model name
     });
     
     // La siguiente linea sincroniza la base de datos con el modelo.
-    //Commerce.sync({force: true});
+    Commerce.sync({force: true});
     
     return Commerce;
 };
