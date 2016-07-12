@@ -7,7 +7,7 @@ console.log(models.Address);
 console.log(models.Commerce);
 
 /**
-    Lista de Todos los Comercios.
+    Lista de Todos los Comercios creados
     @author Isis Gomez
 */
 router.get('/all', function (req, res) {
