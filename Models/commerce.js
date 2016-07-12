@@ -21,14 +21,14 @@ module.exports  = function(sequelize, DataTypes) {
             type        : DataTypes.INTEGER,
             field       : 'Latitude',
             allowNull   : false,
-            defaultValue: null,
+            defaultValue: 0,
             validate    : { min: -90, max: 90 }
         },
         longitude       : {
             type        : DataTypes.INTEGER,
             field       : 'Longitude',
             allowNull   : false,
-            defaultValue: null,
+            defaultValue: 0,
             validate    : { min: -180, max: 180 }
         }
     }, {
@@ -36,7 +36,7 @@ module.exports  = function(sequelize, DataTypes) {
     });
     
     // La siguiente linea sincroniza la base de datos con el modelo.
-    Commerce.sync({force: true});
+    // Commerce.sync({force: true});
     
     return Commerce;
 };

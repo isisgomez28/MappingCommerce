@@ -9,23 +9,12 @@ console.log(models.Commerce);
     Lista de Todos los Comercios creados
     @author Isis Gomez
 */
-router.get('/all', function (req, res) {
+router.get('/comerces', function (req, res) {
     // Mostrar en Consola resumen de la ejecucion de la peticion de todos los Comercios.
     console.log('Peticion de todos los comercios creados');
     
     models.Commerce.findAll().then(function (err, commerces) {
-        if (err) {
-            return res(err);
-        }
-        
-        try {
-            parsedJson = JSON.parse(commerces);
-        }
-        catch (exception) {
-            return res(exception);
-        }
-        
-        return res(null, parsedJson);        
+        res.json(commerces);       
     });
 });
 
@@ -37,26 +26,16 @@ router.post('/create', function(req, res) {
     console.log("Creacion de un nuevo comercio."); 
     
     console.log(req.body);
-    console.log(res.body);
     
     models.Commerce.create({
         code        : req.body.code,
         name        : req.body.name,
         description : req.body.description,
-        isPrincipal : req.body.isPrincipal
-    }).then(function(err, business) {
-        if(err) {
-            return res(err);
-        }
+        latitude    : req.body.latitude,
+        longitude   : req.body.longitude
         
-        try {
-            parsedJson = JSON.parse(business);
-        }
-        catch (exception) {
-            return res(exception);
-        }
-        
-        return res(null, parsedJson);
+    }).then(function(business) {
+        res.json({message: 'Comercio Creado', business: business});
     });
 });
 
@@ -67,19 +46,8 @@ router.post('/create', function(req, res) {
 router.get('/:id', function(req, res) {
     console.log("Peticion de un comercio " + req.params.id);
     
-    models.Commerce.findById(req.params.id).then(function(err, business) {
-        if(err) {
-            return res(err);
-        }
-        
-        try {
-            parsedJson = JSON.parse(business);
-        }
-        catch (exception) {
-            return res(exception);
-        }
-            
-        return res(null, parsedJson);
+    models.Commerce.findById(req.params.id).then(function(business) {                   
+        res.json(business);
     });
 });
 
@@ -91,24 +59,14 @@ router.put('/edit/:id', function(req, res) {
     console.log("Edicion de comercio #" + req.params.id);
     
     models.Commerce.findById(req.params.id).then(function(business) {
-        business.code = req.body.code;
-        business.name = req.body.name;
-        business.description = req.body.description;
-        business.isPrincipal = req.body.isPrincipal;
+        business.code           = req.body.code;
+        business.name           = req.body.name;
+        business.description    = req.body.description;
+        business.latitude       = req.body.latitude;
+        business.longitude      = req.body.longitude
         
-        business.save().then(function(err, business) {
-            if(err) {
-               return err; 
-            }
-            
-            try {
-                parsedJson = JSON.parse(business);
-            }
-            catch (exception) {
-                return res(exception);
-            }
-            
-            return res(null, parsedJson);
+        business.save().then(function(business) {
+            res.json({message: 'Comercio Editado', business: business});
         });
     });
 });
