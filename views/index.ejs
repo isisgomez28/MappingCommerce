@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <% include ../views/partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../views/partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>This is great</h1>
+            <p>Welcome to templating using EJS</p>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Cod.</th>
+                            <th>Nomber</th>
+                            <th>Latitud</th>
+                            <th>Longitud</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% commerces.forEach(function(commerce) { %>
+                            <tr>
+                                <th><%= commerce.code %></th>
+                                <th><%= commerce.name %></th>
+                                <th><%= commerce.longitude %></th>
+                                <th><%= commerce.latitude %></th>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../views/partials/footer %>
+    </footer>
+    
+</body>
+</html>
