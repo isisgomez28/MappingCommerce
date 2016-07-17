@@ -28,4 +28,4 @@ app.use('/commerce', commerceRoutes);
 // Inicio de Ejecución de nuestro Servidor
 // Configuración de los Modelos
 app.listen(port);
-console.log('Magic happens on port ' + port);
+console.log('Magic in port number ' + port);
