@@ -3,6 +3,8 @@
 ------- commerce.js
 --- routes/
 ------- commerceRouter.js
+- .gitignore
+- FileStructure.txt
 - node_modules/
 - config.json
 - package.json

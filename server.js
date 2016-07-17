@@ -9,6 +9,7 @@ var models         = require('./models/context');
 
 // Configuración del Router de la Aplicación
 var commerceRoutes = require('./Routes/commerceRouter');
+
 // Configuración del Puerto de la Aplicación
 var port = process.env.PORT || 2727;
 
@@ -28,4 +29,12 @@ app.use('/commerce', commerceRoutes);
 // Inicio de Ejecución de nuestro Servidor
 // Configuración de los Modelos
 app.listen(port);
+
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res){
+    res.render('index');
+});
+
+
 console.log('Magic in port number ' + port);
