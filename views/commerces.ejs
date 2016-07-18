@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es"> 
+    <head>
+        <% include ../views/partials/head %>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSp6AeC4g54R-IraDQ8LBhDviAEkZT7Uw &callback=initMap"></script>
+        <script type="text/javascript">
+            var loadMap = function() {
+                var myOptions = {
+                  center: new google.maps.LatLng(<%=18.472397%>, <%=-69.893779%>),
+                  zoom: <%= 40 %>,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map"), myOptions);
+            };
+            window.onload= loadMap;
+        </script>
+    </head>
+    <body class="container">
+        <header>
+            <% include ../views/partials/header %>
+        </header>
+        
+        <main>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="map" style="height:300px;"></div>
+                </div>                
+            </div>
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Cod.</th>
+                            <th>Nomber</th>
+                            <th>Latitud</th>
+                            <th>Longitud</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% commerces.forEach(function(commerce) { %>
+                            <tr>
+                                <th><%= commerce.code %></th>
+                                <th><%= commerce.name %></th>
+                                <th><%= commerce.longitude %></th>
+                                <th><%= commerce.latitude %></th>
+                                <th></th>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        
+        <footer>
+            <% include ../views/partials/footer %>
+        </footer>
+    </body>
+</html>

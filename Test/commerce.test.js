@@ -58,18 +58,18 @@ describe('unit test', function (){
             });
     });
     
-    it('eliminación de comercio', function(done){
-        var commerceId = 20;       
-        
-        server
-            .delete('/commerce/remove/' + commerceId)
-            .expect(200)
-            .end(function(err, res){
-                res.status.should.equal(200);
-                (err == null).should.be.true;
-                done();
-            });
-    });
+//    it('eliminación de comercio', function(done){
+//        var commerceId = 20;       
+//        
+//        server
+//            .delete('/commerce/remove/' + commerceId)
+//            .expect(200)
+//            .end(function(err, res){
+//                res.status.should.equal(200);
+//                (err == null).should.be.true;
+//                done();
+//            });
+//    });
     
     it('error en url', function(done){
         server

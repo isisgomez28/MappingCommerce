@@ -18,8 +18,11 @@ router.get('/commerces', function (req, res) {
     // Mostrar en Consola resumen de la ejecucion de la peticion de todos los Comercios.
     console.log('Peticion de todos los comercios creados');
     
-    models.Commerce.findAll().then(function (commerces) {
-        res.json(commerces);       
+    models.Commerce.findAll().then(function(commerces) {
+        res.render('commerces', {
+            title: 'Map & Commerces',
+            commerces: commerces
+        });       
     });
 });
 
