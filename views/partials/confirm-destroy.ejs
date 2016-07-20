@@ -1,0 +1,31 @@
+<div class="modal fade" id="confirm-destroy" tabindex="-1" role="dialog" aria-labelledby="confirm-destroyLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form method="post" action="remove">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="confirm-destroyLabel">
+            Confirmacion Eliminacion
+          </h4>
+        </div>
+        <div class="modal-body">
+          <!--Formulario-->
+          <input type="hidden" class="delete-id" name="id">
+          <div class="form-group">
+            <p> ¿Desea eliminar el comercio seleccionado? </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-primary">
+            Eliminar
+          </button>
+        </div>
+      </form> 
+    </div>     
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<!-- Modal -->
+<div class="modal fade" id="new-commerce-modal" role="dialog" aria-labelledby="new-commerceLabel">
+    <div class="modal-dialog" role="document">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="new-commerceLabel">Nuevo Comercio</h4>
+        </div>
+        <div class="modal-body">            
+            <form action="create" method="post" data-toggle="validator" novalidate>
+                <input type="hidden" class="new-id" name="id">
+                
+                <label for="new-code">Codigo</label>
+                <input class="form-control new-code" id="new-code" type="text" name="code" maxlength="12" required data-error="Debe ingresar código para el comercio">
+                <div class="help-block with-errors"></div>
+                
+                <label for="new-name">Nombre</label>
+                <input class="form-control new-name" id="new-name" type="text" name="name" required data-error="Debe ingresar un nombre">
+                <div class="help-block with-errors"></div>
+                
+                <label for="new-description">Descripcion</label>
+                <input class="form-control new-description" id="new-description" type="text" name="description">
+                <div class="help-block with-errors"></div>
+                
+                <label for="new-latitude">Latitud</label>
+                <input class="form-control new-latitude" id="new-latitude" type="number" name="latitude" max="90" min="-90" required data-error="Debe ingresar valores dentro del rango -90 a 90 ">
+                <div class="help-block with-errors"></div>
+                
+                <label for="new-longitude">Longitud</label>
+                <input class="form-control new-longitude" id="new-longitude" type="number" name="longitude" max="180" min="-180" required data-error="Debe ingresar valores dentro del rango -180 a 180 ">
+                <div class="help-block with-errors"></div>
+                
+                <br>
+                
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#new-commerce-modal').on('hidden.bs.modal', function() {
+            $('#new-commerce-modal').formValidation('resetForm', true);
+        });
+    }
+</script>

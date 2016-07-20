@@ -1,0 +1,53 @@
+<!-- Modal -->
+<div class="modal fade" id="edit-commerce-modal" role="dialog" aria-labelledby="edit-commerceLabel">
+    <div class="modal-dialog" role="document">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" id="edit-commerceLabel">Editar Comercio</h4>
+        </div>
+        <div class="modal-body">            
+            <form action="edit" method="post" data-toggle="validator" novalidate>
+                <input type="hidden" class="edit-id" name="id">
+                
+                <label for="edit-code">Codigo</label>
+                <input class="form-control edit-code" id="edit-code" type="text" name="code" maxlength="12" required data-error="Debe ingresar código para el comercio">
+                <div class="help-block with-errors"></div>
+                
+                <label for="edit-name">Nombre</label>
+                <input class="form-control edit-name" id="edit-name" type="text" name="name" required data-error="Debe ingresar un nombre">
+                <div class="help-block with-errors"></div>
+                
+                <label for="edit-description">Descripcion</label>
+                <input class="form-control edit-description" id="edit-description" type="text" name="description">
+                <div class="help-block with-errors"></div>
+                
+                <label for="edit-latitude">Latitud</label>
+                <input class="form-control edit-latitude" id="edit-latitude" type="number" name="latitude" max="90" min="-90" required data-error="Debe ingresar valores dentro del rango -90 a 90 ">
+                <div class="help-block with-errors"></div>
+                
+                <label for="edit-longitude">Longitud</label>
+                <input class="form-control edit-longitude" id="edit-longitude" type="number" name="longitude" max="180" min="-180" required data-error="Debe ingresar valores dentro del rango -180 a 180 ">
+                <div class="help-block with-errors"></div>
+                
+                <br>
+                
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // codes works on all bootstrap modal windows in application
+        $('.modal').on('hidden.bs.modal', function(e) { 
+            $(this).removeData();
+        }) ;
+    });
+</script>
