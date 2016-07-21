@@ -15,13 +15,11 @@
   "dependencies": {
     "async": "^1.5.0",
     "body-parser": "^1.0.2",
-    "bootbox": "^4.4.0",
     "debug": "~2.2.0",
     "ejs": "^2.4.2",
     "express": "^4.0.0",
     "mysql": "^2.0.0-alpha9",
-    "sequelize": "^3.13.0",
-    "validator": "^5.4.0"
+    "sequelize": "^3.13.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
