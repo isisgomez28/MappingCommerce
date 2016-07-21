@@ -36,7 +36,7 @@ module.exports  = function(sequelize, DataTypes) {
     });
     
     // La siguiente linea sincroniza la base de datos con el modelo.
-    Commerce.sync({force: true});
+    // Commerce.sync({force: true});
     
     return Commerce;
 };
